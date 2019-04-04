@@ -7,7 +7,7 @@ import NavBar from "../NavBar/NavBar"
 
 import Home from "./../Home/Home"
 import TaskList from "./../TaskList/TaskList"
-// import EditTask from "./../EditTask/EditTask" // need to create
+import EditTask from "./../EditTask/EditTask"
 
 class Container extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Container extends React.Component {
   render() {
     return (
       <div>
-        <h1>Task App With Redux</h1>
+        <h1>Task App With React/Redux</h1>
 
         <BrowserRouter>
           <NavBar />
@@ -26,7 +26,7 @@ class Container extends React.Component {
               <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route path="/home" component={Home} />
 
-              {/* <Route path="/products/edit/:id" render={(props) => <EditProduct {...props} />} /> */}
+              <Route path="/products/edit/:id" render={(props) => <EditTask {...props} />} />
 
               <Route path="/tasks/new" component={CreateTask} />
 

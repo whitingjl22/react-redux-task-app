@@ -1,0 +1,8 @@
+.editTask-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  margin-bottom: 5px;
+}

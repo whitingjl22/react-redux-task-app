@@ -1,38 +1,8 @@
-// import React from "react"
-
-// import { connect } from "react-redux"
-// import { updateNewTaskValue, createTask, resetNewTaskValue } from "../../redux"
-
-// const CreateTask = ({ value, handleChange, handleSubmit, handleReset }) => {
-//   return (
-//     <div>
-//       <h3>Create a Task</h3>
-//       <input type="text" value={value} onChange={(event) => handleChange(event.target.value)} />
-//       <button onClick={handleSubmit}>Add Task</button>
-//       <button onClick={handleReset}>Reset Input</button>
-//     </div>
-//   )
-// }
-
-// const mapStateToProps = (state) => ({
-//   value: state.newTaskValue
-// })
-
-// const mapDispatchToProps = (dispatch) => ({
-//   handleChange: (value) => dispatch(updateNewTaskValue(value)),
-//   handleReset: () => dispatch(resetNewTaskValue()),
-//   handleSubmit: () => dispatch(createTask())
-// })
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(CreateTask)
-
 import React from "react"
 import { connect } from "react-redux"
-import { createTask } from "../../redux"
 import { Redirect } from "react-router-dom"
+
+import { createTask } from "../../redux"
 
 class CreateTask extends React.Component {
   constructor(props) {
@@ -77,13 +47,9 @@ class CreateTask extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  // value: state.newTaskValue
-})
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
-  // handleChange: (value) => dispatch(updateNewTaskValue(value)),
-  // handleReset: () => dispatch(resetNewTaskValue()),
   handleSubmit: (newTask) => dispatch(createTask(newTask))
 })
 

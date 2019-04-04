@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import { connect } from "react-redux"
 import { deleteTask, toggleCompleteTask } from "../../redux"
@@ -27,7 +28,9 @@ const TaskList = ({ tasks, destroyTask, switchCompleteTask }) => {
               }}>
               Delete
             </button>
-            <button>Edit</button>
+            <Link to={"/products/edit/" + task.id}>
+              <button>Edit</button>
+            </Link>
           </div>
         ))}
       <hr />
@@ -50,7 +53,9 @@ const TaskList = ({ tasks, destroyTask, switchCompleteTask }) => {
               }}>
               Delete
             </button>
-            <button>Edit</button>
+            <Link to={"/products/edit/" + task.id}>
+              <button>Edit</button>
+            </Link>
           </div>
         ))}
     </div>
