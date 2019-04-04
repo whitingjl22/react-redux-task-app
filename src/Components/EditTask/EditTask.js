@@ -16,18 +16,20 @@ class EditTask extends React.Component {
 
   componentDidMount = () => {
     // this.props.editTask(parseInt(this.props.match.params.id))
-    console.log("-- " + this.props.match.params.id + " --")
-  }
+    // console.log("-- " + this.props.match.params.id + " --")
+    // let title = ""
+    // for (let i = 0; i < this.props.tasks.length; i++) {
+    //   if (parseInt(this.props.match.params.id) === this.props.tasks[i].id) {
+    //     title = this.props.tasks[i].name
+    //   }
+    // }
+    // this.setState({ title: title })
 
-  // static getDerivedStateFromProps(props, current_state) {
-  //   // console.log(current_state.title)
-  //   // console.log(props.taskToEdit.title)
-  //   console.log(props)
-  //   if (current_state.title !== props.taskToEdit.title) {
-  //     return { title: props.taskToEdit.title }
-  //   }
-  //   return null
-  // }
+    console.log(parseInt(this.props.match.params.id))
+    for (let i = 0; i < this.props.tasks.length; i++) {
+      console.log(this.props.tasks[i].id)
+    }
+  }
 
   onSubmit(e) {
     e.preventDefault()
@@ -73,6 +75,7 @@ class EditTask extends React.Component {
 
 const mapStateToProps = (state) => ({
   // taskToEdit: state.taskToEdit // TEST
+  tasks: state.tasks
 })
 
 const mapDispatchToProps = (dispatch) => ({
