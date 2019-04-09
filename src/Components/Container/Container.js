@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom"
 
 import CreateTask from "./../CreateTask/CreateTask"
 import NavBar from "../NavBar/NavBar"
-
 import Home from "./../Home/Home"
 import TaskList from "./../TaskList/TaskList"
 import EditTask from "./../EditTask/EditTask"

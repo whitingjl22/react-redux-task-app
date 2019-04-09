@@ -3,31 +3,33 @@ import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import "./EditTask.css"
 
-// import { editTask } from "../../redux" // TEST
-
 class EditTask extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: null,
       title: "",
+      completed: null,
       toTaskList: false
     }
   }
 
   componentDidMount = () => {
-    // this.props.editTask(parseInt(this.props.match.params.id))
-    // console.log("-- " + this.props.match.params.id + " --")
-    // let title = ""
-    // for (let i = 0; i < this.props.tasks.length; i++) {
-    //   if (parseInt(this.props.match.params.id) === this.props.tasks[i].id) {
-    //     title = this.props.tasks[i].name
-    //   }
-    // }
-    // this.setState({ title: title })
+    let title = ""
+    let id = null
+    let completed = null
 
-    console.log(parseInt(this.props.match.params.id))
     for (let i = 0; i < this.props.tasks.length; i++) {
-      console.log(this.props.tasks[i].id)
+      if (parseInt(this.props.match.params.id) === this.props.tasks[i].id) {
+        console.log(this.props.tasks[i])
+
+        title = this.props.tasks[i].title
+        id = this.props.tasks[i].id
+        completed = this.props.tasks[i].completed
+
+        this.setState({ title: title, id: id, completed: completed })
+        break
+      }
     }
   }
 
@@ -43,12 +45,6 @@ class EditTask extends React.Component {
   }
 
   render() {
-    // if (this.props.taskToEdit !== null && this.state.title !== this.props.taskToEdit.title) // TEST
-    //   this.setState({ title: this.props.taskToEdit.title })
-
-    // console.log(this.props.taskToEdit)
-    console.log(this.state)
-
     if (this.state.toTaskList) {
       return <Redirect to="/tasks" />
     }
@@ -74,13 +70,10 @@ class EditTask extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  // taskToEdit: state.taskToEdit // TEST
   tasks: state.tasks
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  // editTask: (id) => dispatch(editTask(id)) // TEST
-})
+const mapDispatchToProps = (dispatch) => ({})
 
 export default connect(
   mapStateToProps,
